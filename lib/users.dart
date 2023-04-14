@@ -1,3 +1,4 @@
+import 'package:contakt_familia/user_detail_page.dart';
 import 'package:flutter/material.dart';
 
 import 'user_data.dart';
@@ -16,7 +17,7 @@ class _UsersPageState extends State<UsersPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Color.fromARGB(238, 1, 238, 100),
-        title: const Text('Контак Ф.И.О'),
+        title: const Text('Контакт Ф.И.О'),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8),
@@ -26,6 +27,15 @@ class _UsersPageState extends State<UsersPage> {
           print(users[index].atyJonu);
           final user = users[index];
           return ListTile(
+            //onTap: (){},-----бул аноним функция деп аталат.
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UserDetailPage(),
+                ),
+              );
+            },
             title: Text('${user.atyJonu}              Улуту Кыргыз'),
             subtitle: Text('${user.kesibi} ${user.jash} Жашы'),
             leading: CircleAvatar(
